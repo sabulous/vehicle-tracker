@@ -15,13 +15,9 @@ type GoogleMapViewProps = {
 
 const GoogleMapView = withScriptjs(
   withGoogleMap(({ lat, lng, showMarker, vehicleData }: GoogleMapViewProps) => (
-    <GoogleMap
-      defaultZoom={12}
-      defaultCenter={{ lat: 51.75429320627387, lng: -1.2632131576538086 }}
-    >
+    <GoogleMap defaultZoom={16} center={{ lat, lng }}>
       {showMarker && (
         <Marker
-          defaultPlace="center"
           position={{ lat, lng }}
           label={`${vehicleData?.name} - ${vehicleData?.plate_number}`}
         />

@@ -9,7 +9,6 @@ const useFetchVehicles = (): [Vehicle[], () => Promise<void>] => {
   async function getVehicles(): Promise<void> {
     const response = await fetch(VEHICLE_LIST_API);
     const data: Vehicle[] = await response.json();
-    console.log(data);
     if (data) {
       setVehicleList(data);
     }

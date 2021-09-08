@@ -56,7 +56,7 @@ const VehicleList = ({ setSelectedVehicle }: VehicleListProps) => {
               >
                 <td>{idx + 1}</td>
                 <td>{v.name}</td>
-                <td>{v.color}</td>
+                <td style={{ backgroundColor: v.color }}>{v.color}</td>
                 <td>{v.plate_number}</td>
               </tr>
             ))}

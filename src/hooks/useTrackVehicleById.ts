@@ -14,7 +14,6 @@ const useTrackVehicleById = (id?: string): VehicleTelemetry | undefined => {
         const VEHICLE_TELEMETRY_API = `${VEHICLE_LIST_API}/${id}/telemetry`;
         const response = await fetch(VEHICLE_TELEMETRY_API);
         const data: VehicleTelemetry = await response.json();
-        console.log(data);
         if (data) {
           setTelemetry(data);
         }
