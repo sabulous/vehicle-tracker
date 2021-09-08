@@ -39,6 +39,7 @@
 
 .container--flex {
   display: flex;
+  justify-content: space-around;
 }
 
 .container--sm {
@@ -66,6 +67,11 @@
 
 table {
   cursor: pointer;
+}
+
+th,
+td {
+  padding: 0.25rem;
 }
 
 .tr__vehicle {

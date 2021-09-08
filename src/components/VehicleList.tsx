@@ -27,7 +27,6 @@ const VehicleList = ({ setSelectedVehicle }: VehicleListProps) => {
     //@ts-ignore
     const selectedId = e.currentTarget.getAttribute("vehicleid");
 
-    console.log("selected:", selectedId);
     if (selectedId) {
       getVehicleDetailsById(selectedId);
       setSelectedId(selectedId);
@@ -38,6 +37,7 @@ const VehicleList = ({ setSelectedVehicle }: VehicleListProps) => {
     <div className="container--sm">
       <table>
         <thead className="thead__vehicle">
+          <th>#</th>
           <th>Name</th>
           <th>Color</th>
           <th>Plate Number</th>
@@ -54,6 +54,7 @@ const VehicleList = ({ setSelectedVehicle }: VehicleListProps) => {
                 //@ts-ignore
                 vehicleid={v.id}
               >
+                <td>{idx + 1}</td>
                 <td>{v.name}</td>
                 <td>{v.color}</td>
                 <td>{v.plate_number}</td>
