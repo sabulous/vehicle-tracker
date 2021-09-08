@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Vehicle } from "../types";
 
-const VEHICLE_LIST_API = "https://vehicle-api-test.herokuapp.com/api/vehicles";
+const VEHICLE_LIST_API = process.env.REACT_APP_VEHICLES_API ?? "";
 
 const useFetchVehicles = (): [Vehicle[], () => Promise<void>] => {
   const [vehicleList, setVehicleList] = useState<Vehicle[]>([]);
@@ -10,7 +10,9 @@ const useFetchVehicles = (): [Vehicle[], () => Promise<void>] => {
     const response = await fetch(VEHICLE_LIST_API);
     const data: Vehicle[] = await response.json();
     console.log(data);
-    setVehicleList(data);
+    if (data) {
+      setVehicleList(data);
+    }
   }
 
   useEffect(() => {
