@@ -3,7 +3,7 @@ import { VehicleTelemetry } from "../types";
 
 const VEHICLE_LIST_API = process.env.REACT_APP_VEHICLES_API ?? "";
 
-const useTrackVehicleById = (id: string): VehicleTelemetry | undefined => {
+const useTrackVehicleById = (id?: string): VehicleTelemetry | undefined => {
   const [telemetry, setTelemetry] = useState<VehicleTelemetry>();
 
   const timer: MutableRefObject<any> = useRef();
