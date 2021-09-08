@@ -24,7 +24,7 @@ Once app is started at `localhost:3000` go over one of the vehicles and click on
 
 ## How to run tests
 
-    `yarn test`
+    yarn test
 
 ## Improvements to make
 
@@ -33,3 +33,5 @@ Once app is started at `localhost:3000` go over one of the vehicles and click on
 3. Proper unit and integration tests
 4. Pagination while fetching vehicle list to improve performance
 5. Better error handling (ex: providing error types etc.)
+6. Provider, Redux or some other state management library might be used for improved maintainability in the future
+7. App could be dockerized
