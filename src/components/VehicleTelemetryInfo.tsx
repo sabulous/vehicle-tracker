@@ -12,7 +12,7 @@ const VehicleTelemetryInfo = ({ vehicleData }: TelemetryProps) => {
   const telemetry = useTrackVehicleById(vehicleData?.id);
 
   return (
-    <div>
+    <div className="container--md container container--pad container--margin container--map">
       <p>{JSON.stringify(telemetry)}</p>
       {telemetry && (
         <GoogleMapView

@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+.container--flex {
+  display: flex;
+}
+
+.container--sm {
+  max-width: 33vw;
+}
+
+.container--md {
+  max-width: 66vw;
+}
+
+.container--lg {
+  max-width: 100vw;
+}
+
+.container--map {
+  word-wrap: break-word;
+}
+
+.container--pad {
+  padding: 1rem;
+}
+.container--margin {
+  margin: 0.5rem;
+}
+
+table {
+  cursor: pointer;
+}
+
+.tr__vehicle {
+  &:hover {
+    border: 1px solid #282c34;
+    background-color: aliceblue;
+    transform: scale(1.01, 1.01);
+  }
+  &:active {
+    transform: scale(0.99, 0.99);
+  }
+}
+
+.tr__selected {
+  background-color: greenyellow;
+}
