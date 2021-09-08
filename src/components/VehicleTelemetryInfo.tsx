@@ -1,3 +1,4 @@
+import React from "react";
 import useTrackVehicleById from "../hooks/useTrackVehicleById";
 import { Vehicle } from "../types";
 import GoogleMapView from "./GoogleMapView";
@@ -11,13 +12,6 @@ const GOOGLE_MAP_URL = process.env.REACT_APP_GOOGLE_MAP_URL ?? "";
 const VehicleTelemetryInfo = ({ vehicleData }: TelemetryProps) => {
   const telemetry = useTrackVehicleById(vehicleData?.id);
 
-  /*vehicle_id: string;
-  timestamp: number;
-  lat: number;
-  lng: number;
-  speed: number;
-  cpu_usage: number;
-  battery_level: number; */
   return (
     <div className="container--md container container--pad container--margin container--map">
       <table>
@@ -42,6 +36,7 @@ const VehicleTelemetryInfo = ({ vehicleData }: TelemetryProps) => {
       </table>
       {telemetry && (
         <GoogleMapView
+          showMarker={true}
           lat={telemetry?.lat}
           lng={telemetry?.lng}
           vehicleData={vehicleData}
