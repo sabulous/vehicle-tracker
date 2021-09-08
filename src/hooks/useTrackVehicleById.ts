@@ -10,13 +10,21 @@ const useTrackVehicleById = (id?: string): VehicleTelemetry | undefined => {
 
   useEffect(() => {
     async function getTelemetry(): Promise<void> {
-      if (id) {
-        const VEHICLE_TELEMETRY_API = `${VEHICLE_LIST_API}/${id}/telemetry`;
-        const response = await fetch(VEHICLE_TELEMETRY_API);
-        const data: VehicleTelemetry = await response.json();
-        if (data) {
-          setTelemetry(data);
+      try {
+        if (id) {
+          const VEHICLE_TELEMETRY_API = `${VEHICLE_LIST_API}/${id}/telemetry`;
+          const response = await fetch(VEHICLE_TELEMETRY_API);
+          const data: VehicleTelemetry = await response.json();
+          if (data) {
+            setTelemetry(data);
+          }
         }
+      } catch (e) {
+        console.error(
+          `An error occurred while fetching telemetry data: ${
+            (e as Error).message
+          }`
+        );
       }
     }
     getTelemetry();

@@ -7,10 +7,18 @@ const useFetchVehicles = (): [Vehicle[], () => Promise<void>] => {
   const [vehicleList, setVehicleList] = useState<Vehicle[]>([]);
 
   async function getVehicles(): Promise<void> {
-    const response = await fetch(VEHICLE_LIST_API);
-    const data: Vehicle[] = await response.json();
-    if (data) {
-      setVehicleList(data);
+    try {
+      const response = await fetch(VEHICLE_LIST_API);
+      const data: Vehicle[] = await response.json();
+      if (data) {
+        setVehicleList(data);
+      }
+    } catch (e) {
+      console.error(
+        `An error occurred while fetching vehicle list data: ${
+          (e as Error).message
+        }`
+      );
     }
   }
 

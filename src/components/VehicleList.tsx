@@ -16,9 +16,17 @@ const VehicleList = ({ setSelectedVehicle }: VehicleListProps) => {
 
   const getVehicleDetailsById = useCallback(
     async (id: string) => {
-      const response = await fetch(`${VEHICLE_LIST_API}/${id}`);
-      const data: Vehicle = await response.json();
-      setSelectedVehicle(data);
+      try {
+        const response = await fetch(`${VEHICLE_LIST_API}/${id}`);
+        const data: Vehicle = await response.json();
+        setSelectedVehicle(data);
+      } catch (e) {
+        console.error(
+          `An error occurred while fetching vehicle data: ${
+            (e as Error).message
+          }`
+        );
+      }
     },
     [setSelectedVehicle]
   );
